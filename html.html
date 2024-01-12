@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAO Izdelek</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="container-body"></div>
+      <div class="container-tools">
+        <input type="file" id="uploader" />
+        <button onclick="sivenje()" id="sivenje">Sivenje</button>
+        <button onclick="thresholding()" id="thresholding">Thresholding</button>
+        <div class="odstranjevanje-kanalov">
+          <p>Odstranjevanje posameznih barvnih kanalov:</p>
+          <div class="sub-1">
+            <input
+              type="checkbox"
+              id="odstrani0"
+              onchange="odstraniBarvneKanale()"
+              value="red"
+            />
+            <label for="odstrani0">Red</label>
+            <br />
+          </div>
+          <div class="sub-2">
+            <input
+              type="checkbox"
+              id="odstrani1"
+              onchange="odstraniBarvneKanale()"
+              value="green"
+            />
+            <label for="odstrani1">Green</label>
+            <br />
+          </div>
+          <div class="sub-3">
+            <input
+              type="checkbox"
+              id="odstrani2"
+              onchange="odstraniBarvneKanale()"
+              value="blue"
+            />
+            <label for="odstrani2">Blue</label>
+          </div>
+        </div>
+        <div class="poudarjanje-kanalov">
+          <p>Poudarjanje posameznih barvnih kanalov:</p>
+          <div class="sub-1">
+            <input
+              type="checkbox"
+              id="poudari0"
+              onchange="poudariBarvneKanale()"
+              value="red"
+            />
+            <label for="poudari0">Red</label>
+            <br />
+          </div>
+          <div class="sub-2">
+            <input
+              type="checkbox"
+              id="poudari1"
+              onchange="poudariBarvneKanale()"
+              value="green"
+            />
+            <label for="poudari1">Green</label>
+            <br />
+          </div>
+          <div class="sub-3">
+            <input
+              type="checkbox"
+              id="poudari2"
+              onchange="poudariBarvneKanale()"
+              value="blue"
+            />
+            <label for="poudari2">Blue</label>
+          </div>
+        </div>
+        <div class="svetljenje">
+          <label for="svetlost">Spreminjanje svetlosti (0.01 - 5): </label>
+          <input
+            type="range"
+            id="svetlost"
+            value="1"
+            max="5"
+            min="0.01"
+            step="0.01"
+            oninput="spreminjanjeSvetlostiSlike()"
+            onchange="spreminjanjeSvetlostiSlike()"
+          />
+          <p id="vrednost">1</p>
+        </div>
+        <button onclick="boxBlur()" id="box-blur">Box blur</button>
+        <button onclick="gaussianBlur()" id="gaussian-blur">
+          Gaussian blur
+        </button>
+        <div class="sobel">
+          <p>Sobel operator:</p>
+          <div class="sub-1">
+            <input
+              type="radio"
+              onchange="sobelVertical()"
+              id="vertikala"
+              value="vertikala"
+              name="sobel"
+            />
+            <label for="vertikala">Sobel vertikale </label>
+            <br />
+          </div>
+          <div class="sub-2">
+            <input
+              type="radio"
+              onchange="sobelHorizontal()"
+              id="horizontala"
+              value="horizontala"
+              name="sobel"
+            />
+            <label for="horizontala">Sobel horizontale </label>
+            <br />
+          </div>
+          <div class="sub-3">
+            <input
+              type="radio"
+              onchange="sobelCombined()"
+              id="sobel-skupni"
+              value="sobel-skupni"
+              name="sobel"
+            />
+            <label for="sobel-skupni">Sobel vertikale in horizontale </label>
+          </div>
+        </div>
+        <button onclick="unsharpeningMask()" id="unsharpening-mask">
+          Unsharpening mask
+        </button>
+        <button onclick="sharpeningFunction()" id="sharpening">
+          Sharpening
+        </button>
+        <div class="laplace">
+          <p>Laplace operator:</p>
+          <div class="sub-1">
+            <input
+              type="radio"
+              id="laplace1"
+              onchange="laplace1()"
+              value="1"
+              name="laplace"
+            />
+            <label for="laplace1">0 -1 0 -1 4 -1 0 -1 0</label>
+            <br />
+          </div>
+          <div class="sub-2">
+            <input
+              type="radio"
+              id="laplace2"
+              onchange="laplace2()"
+              value="2"
+              name="laplace"
+            />
+            <label for="laplace2">-1 -1 -1 -1 8 -1 -1 -1 -1</label>
+          </div>
+        </div>
+        <div class="histogram">
+          <p>Histogram:</p>
+          <div class="sub-1">
+            <label for="odsek">Vnesi št. odsekov: </label>
+            <input
+              type="number"
+              id="odsek"
+              value="5"
+              min="1"
+              max="255"
+              style="width: fit-content"
+            />
+            <br />
+          </div>
+          <div class="sub-2">
+            <input
+              type="radio"
+              id="barva0"
+              value="red"
+              name="histogram"
+              checked="checked"
+            />
+            <label for="barva0">Red</label>
+            <br />
+          </div>
+          <div class="sub-3">
+            <input type="radio" id="barva1" value="green" name="histogram" />
+            <label for="barva1">Green</label>
+            <br />
+          </div>
+          <div class="sub-4">
+            <input type="radio" id="barva2" value="blue" name="histogram" />
+            <label for="barva2">Blue</label>
+            <br />
+          </div>
+          <div class="sub-h5">
+            <button onclick="histrogram()" id="histogram">
+              Prikaži histogram
+            </button>
+          </div>
+        </div>
+        <button onclick="reset()" id="reset">Reset</button>
+      </div>
+    </div>
+    <div class="toolbar">
+      <img src="./save-icon.png" id="save-button" alt="" onclick="save()" />
+      <img src="./undo-icon.png" id="undo-button" alt="" />
+      <img src="./redo-icon.png" id="redo-button" alt="" />
+      <img src="./paint-icon.png" id="paint-button" alt="" />
+    </div>
+    <script src="./js.js"></script>
+  </body>
+</html>
