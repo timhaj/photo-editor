@@ -1,11 +1,11 @@
-*{
+* {
     height: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.main{
+.main {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -18,7 +18,7 @@
     color: whitesmoke;
 }
 
-button{
+button {
     background-color: #04E762;
     color: black;
     border: 0px;
@@ -27,12 +27,12 @@ button{
     font-size: 14px;
 }
 
-#uploader{
+#uploader {
     height: auto;
-    width: 50%;
+    width: 90%;
 }
 
-.container-body{
+.container-body {
     display: flex;
     flex-direction: row;
     width: 80%;
@@ -41,7 +41,7 @@ button{
     justify-content: space-evenly;
 }
 
-.container-tools{
+.container-tools {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -50,7 +50,7 @@ button{
     border-left: 1px solid springgreen;
 }
 
-.odstranjevanje-kanalov{
+.odstranjevanje-kanalov {
     background-color: black;
     width: 85%;
     height: auto;
@@ -60,7 +60,7 @@ button{
     padding: 10px;
 }
 
-.poudarjanje-kanalov{
+.poudarjanje-kanalov {
     background-color: black;
     width: 85%;
     height: auto;
@@ -70,7 +70,7 @@ button{
     padding: 10px;
 }
 
-.svetljenje{
+.svetljenje {
     background-color: black;
     width: 85%;
     height: auto;
@@ -81,7 +81,7 @@ button{
     padding: 10px;
 }
 
-.sobel{
+.sobel {
     background-color: black;
     width: 85%;
     height: auto;
@@ -91,7 +91,7 @@ button{
     padding: 10px;
 }
 
-.laplace{
+.laplace {
     background-color: black;
     width: 85%;
     height: auto;
@@ -101,7 +101,7 @@ button{
     padding: 10px;
 }
 
-.histogram{
+.histogram {
     background-color: black;
     width: 85%;
     height: auto;
@@ -111,69 +111,69 @@ button{
     padding: 10px;
 }
 
-.sub-h5{
+.sub-h5 {
     padding-top: 10px;
     text-align: center;
 }
 
-#histogram{
+#histogram {
     width: 60%;
 }
 
-#sivenje{
+#sivenje {
     height: auto;
     width: 50%;
 }
 
-#thresholding{
+#thresholding {
     height: auto;
     width: 50%;
 }
 
-#box-blur{
+#box-blur {
     height: auto;
     width: 50%;
 }
 
-#reset{
+#reset {
     height: 20px;
     width: 50%;
     background-color: #ED1C24;
 }
 
-#gaussian-blur{
+#gaussian-blur {
     height: auto;
     width: 50%;
 }
 
-#unsharpening-mask{
+#unsharpening-mask {
     height: auto;
     width: 50%;
 }
 
-#sharpening{
+#sharpening {
     height: auto;
     width: 50%;
 }
 
-#canvas{
+#canvas {
     width: auto;
     height: 35%;
 }
 
-#canvas2{
+#canvas2 {
     width: auto;
     height: 35%;
 }
 
-img{
+img {
     width: 50px;
     height: 50px;
     margin-left: 5px;
     border: 3px double #00BBF9;
 }
 
-.toolbar{
+.toolbar {
     margin: 0;
     padding: 0;
     width: fit-content;
@@ -189,6 +189,34 @@ img:hover {
     background-color: #008AB8;
 }
 
-#save-button, #paint-button,#undo-button, #redo-button{
+#save-button,
+#paint-button,
+#undo-button,
+#redo-button {
     opacity: 0.3;
+}
+
+input[type=file] {
+    /*     width: 350px; */
+    max-width: fit-content;
+    color: #444;
+    padding: 5px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #555;
+}
+
+input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #084cdf;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+    background: #0d45a5;
 }

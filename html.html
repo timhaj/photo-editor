@@ -5,16 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RAO Izdelek</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
   </head>
   <body>
     <div class="main">
       <div class="container-body"></div>
-      <div class="container-tools">
+      <div class="container-tools border-l-4 border-green-400 pl-4 shadow-lg rounded-lg">
         <input type="file" id="uploader" />
-        <button onclick="sivenje()" id="sivenje">Sivenje</button>
-        <button onclick="thresholding()" id="thresholding">Thresholding</button>
+        <div class="flex flex-col gap-2">
+          <div class="flex justify-between gap-2">
+            <button onclick="sivenje()" id="sivenje" class="px-6 py-3 text-black font-semibold text-md rounded-md shadow-md transition-transform transform hover:scale-105" style="background-color: springgreen;">Sivenje</button>
+            <button onclick="thresholding()" id="thresholding" class="px-6 py-3 text-black font-semibold text-md rounded-md shadow-md transition-transform transform hover:scale-105" style="background-color: springgreen;">Thresholding</button>
+          </div>
+          <div class="flex justify-between gap-2">
+            <button onclick="boxBlur()" id="box-blur" class="px-6 py-3 text-black font-semibold text-md rounded-md shadow-md transition-transform transform hover:scale-105" style="background-color: springgreen;">Box blur</button>
+            <button onclick="gaussianBlur()" id="gaussian-blur" class="px-6 py-3 text-black font-semibold text-md rounded-md shadow-md transition-transform transform hover:scale-105" style="background-color: springgreen;">Gaussian blur</button>
+          </div>
+          <div class="flex justify-between gap-2">
+            <button onclick="unsharpeningMask()" id="unsharpening-mask" class="px-6 py-3 text-black font-semibold text-md rounded-md shadow-md transition-transform transform hover:scale-105" style="background-color: springgreen;">Unsharpening mask</button>
+            <button onclick="sharpeningFunction()" id="sharpening" class="px-6 py-3 text-black font-semibold text-md rounded-md shadow-md transition-transform transform hover:scale-105" style="background-color: springgreen;">Sharpening</button>   
+          </div>
+        </div>
+
         <div class="odstranjevanje-kanalov">
           <p>Odstranjevanje posameznih barvnih kanalov:</p>
           <div class="sub-1">
@@ -93,10 +107,7 @@
           />
           <p id="vrednost">1</p>
         </div>
-        <button onclick="boxBlur()" id="box-blur">Box blur</button>
-        <button onclick="gaussianBlur()" id="gaussian-blur">
-          Gaussian blur
-        </button>
+
         <div class="sobel">
           <p>Sobel operator:</p>
           <div class="sub-1">
@@ -132,12 +143,7 @@
             <label for="sobel-skupni">Sobel vertikale in horizontale </label>
           </div>
         </div>
-        <button onclick="unsharpeningMask()" id="unsharpening-mask">
-          Unsharpening mask
-        </button>
-        <button onclick="sharpeningFunction()" id="sharpening">
-          Sharpening
-        </button>
+
         <div class="laplace">
           <p>Laplace operator:</p>
           <div class="sub-1">
@@ -203,7 +209,7 @@
             </button>
           </div>
         </div>
-        <button onclick="reset()" id="reset">Reset</button>
+        <button onclick="reset()" id="reset" class="px-6 py-3 text-white font-semibold text-md rounded-lg shadow-lg bg-red-600 hover:bg-red-700 transition-transform transform hover:scale-105">Reset</button>
       </div>
     </div>
     <div class="toolbar">
