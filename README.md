@@ -13,3 +13,7 @@ Small highschool project, meant to apply different filters on a given image, usi
 - Sharpening
 - Color histogram 
 - Drawing & saving the modified image
+
+Known bugs:
+- Drawing
+- Histogram flickering even when reseting the canvas
