@@ -72,6 +72,7 @@ function handleImage(e){
     canvas2 = document.createElement('canvas');
     canvas.id = 'canvas';
     canvas2.id = 'canvas2';
+    document.getElementsByClassName('container-body')[0].innerHTML = '';
     document.getElementsByClassName('container-body')[0].appendChild(canvas);
     document.getElementsByClassName('container-body')[0].appendChild(canvas2);
     let c = document.getElementById('canvas');
