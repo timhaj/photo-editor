@@ -1,5 +1,5 @@
 * {
-    height: 100%;
+    /*     height: 100%; */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -219,4 +219,12 @@ input[type=file]::file-selector-button {
 
 input[type=file]::file-selector-button:hover {
     background: #0d45a5;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    scrollbar-width: none;
 }
